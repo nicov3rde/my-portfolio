@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #090d09;
+  --green: #1a5c38;
+  --green-light: #22784a;
+  --cream: #f2f2f0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--cream);
+  font-family: var(--font-inter), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--green);
+  border-radius: 2px;
+}
+
+/* Selection */
+::selection {
+  background: var(--green);
+  color: #fff;
+}
+
+/* Utility */
+@layer utilities {
+  .section-pad {
+    @apply px-6 md:px-12 lg:px-20 py-24 md:py-32;
+  }
+
+  .label-text {
+    @apply text-xs tracking-superwide uppercase text-forest font-body;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-forest hover:bg-forest-light text-cream text-sm tracking-widest uppercase font-body px-8 py-4 transition-colors duration-300;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border border-cream/30 hover:border-cream text-cream text-sm tracking-widest uppercase font-body px-8 py-4 transition-colors duration-300;
+  }
+}
