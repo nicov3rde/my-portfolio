@@ -2,15 +2,7 @@
 
 import { useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-export interface GalleryItem {
-  id: number;
-  label: string;
-  type: "photo" | "video";
-  bgClass: string;
-  colSpan: string;
-  rowSpan: string;
-}
+import type { GalleryItem } from "@/data/gallery";
 
 interface LightboxProps {
   items: GalleryItem[];
@@ -51,83 +43,114 @@ export default function Lightbox({
   return (
     <AnimatePresence>
       <motion.div
-        key="lightbox-overlay"
+        key="lb-overlay"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.25 }}
-        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92"
+        transition={{ duration: 0.2 }}
+        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 px-4 md:px-10"
         onClick={onClose}
       >
-        {/* Card */}
+        {/* Media card */}
         <motion.div
           key={currentIndex}
-          initial={{ opacity: 0, scale: 0.93 }}
+          initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.93 }}
-          transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-          className="relative w-full max-w-5xl mx-6 md:mx-12"
+          exit={{ opacity: 0, scale: 0.94 }}
+          transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+          className="relative max-w-5xl w-full max-h-[85vh] flex flex-col items-center justify-center"
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Media placeholder */}
-          <div
-            className={`w-full aspect-video bg-gradient-to-br ${item.bgClass} flex flex-col items-start justify-end p-8`}
-          >
-            {/* Video icon */}
-            {item.type === "video" && (
-              <div className="absolute top-8 left-8 flex items-center gap-2 text-white/40">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-                <span className="text-xs tracking-widest uppercase font-body">Video</span>
-              </div>
-            )}
-            <span className="label-text text-forest-bright">{item.label}</span>
-            <p className="text-white/30 text-xs font-body mt-1 tracking-wider uppercase">
-              Placeholder — swap in your media
-            </p>
-          </div>
+          {item.type === "video" ? (
+            <video
+              key={item.src}
+              src={item.src}
+              controls
+              autoPlay
+              muted
+              className="max-w-full max-h-[80vh] w-auto h-auto"
+            />
+          ) : (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={item.src}
+              alt={item.caption ?? ""}
+              className="max-w-full max-h-[80vh] w-auto h-auto object-contain"
+            />
+          )}
+
+          {item.caption && (
+            <div className="w-full py-3 px-1 mt-2">
+              <p className="text-xs tracking-widest uppercase text-white/40 font-body">
+                {item.caption}
+              </p>
+            </div>
+          )}
         </motion.div>
 
         {/* Close */}
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-white/50 hover:text-white border border-white/10 hover:border-white/40 transition-colors duration-200"
+          className="absolute top-5 right-5 w-10 h-10 flex items-center justify-center text-white/50 hover:text-white border border-white/10 hover:border-white/40 transition-colors duration-200"
           aria-label="Close"
         >
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
             <path d="M1 1l12 12M13 1L1 13" />
           </svg>
         </button>
 
-        {/* Prev */}
+        {/* Prev / Next */}
         {items.length > 1 && (
-          <button
-            onClick={(e) => { e.stopPropagation(); onPrev(); }}
-            className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center text-white/50 hover:text-white border border-white/10 hover:border-white/40 transition-colors duration-200"
-            aria-label="Previous"
-          >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M10 2L4 8l6 6" />
-            </svg>
-          </button>
+          <>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onPrev();
+              }}
+              className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center text-white/50 hover:text-white border border-white/10 hover:border-white/40 transition-colors duration-200"
+              aria-label="Previous"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path d="M9 2L3 8l6 6" />
+              </svg>
+            </button>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onNext();
+              }}
+              className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center text-white/50 hover:text-white border border-white/10 hover:border-white/40 transition-colors duration-200"
+              aria-label="Next"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path d="M5 2l6 6-6 6" />
+              </svg>
+            </button>
+          </>
         )}
 
-        {/* Next */}
-        {items.length > 1 && (
-          <button
-            onClick={(e) => { e.stopPropagation(); onNext(); }}
-            className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center text-white/50 hover:text-white border border-white/10 hover:border-white/40 transition-colors duration-200"
-            aria-label="Next"
-          >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M6 2l6 6-6 6" />
-            </svg>
-          </button>
-        )}
-
-        {/* Counter */}
-        <span className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/30 text-xs font-body tracking-widest uppercase">
+        <span className="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/25 text-xs font-body tracking-widest">
           {currentIndex + 1} / {items.length}
         </span>
       </motion.div>

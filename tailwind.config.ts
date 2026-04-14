@@ -9,27 +9,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#090d09",
-        "bg-card": "#0d110d",
-        "bg-card-hover": "#111611",
-        forest: {
-          DEFAULT: "#1a5c38",
-          light: "#22784a",
-          bright: "#2d9a5f",
-          muted: "#14472c",
-          dim: "#0d2b1a",
-        },
+        bg: "#080808",
+        card: "#0f0f0f",
+        green: "#00cc00",
         cream: "#f2f2f0",
-        stone: "#999997",
-        border: "#1f261f",
+        stone: "#888886",
+        border: "#1e1e1e",
       },
       fontFamily: {
         display: ["var(--font-bebas)", "sans-serif"],
         body: ["var(--font-inter)", "sans-serif"],
       },
       fontSize: {
-        "display-xl": ["clamp(4rem, 12vw, 12rem)", { lineHeight: "0.9" }],
-        "display-lg": ["clamp(3rem, 8vw, 8rem)", { lineHeight: "0.95" }],
+        "display-xl": ["clamp(4rem, 12vw, 12rem)", { lineHeight: "0.88" }],
+        "display-lg": ["clamp(3rem, 8vw, 8rem)", { lineHeight: "0.92" }],
         "display-md": ["clamp(2rem, 5vw, 5rem)", { lineHeight: "1" }],
       },
       letterSpacing: {
