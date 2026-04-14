@@ -4,8 +4,10 @@ import { useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { GalleryItem } from "@/data/gallery";
 
+type MediaItem = Extract<GalleryItem, { type: "photo" | "video" }>;
+
 interface LightboxProps {
-  items: GalleryItem[];
+  items: MediaItem[];
   currentIndex: number | null;
   onClose: () => void;
   onPrev: () => void;

@@ -173,7 +173,7 @@ export default function WorkModal({ campaign, onClose }: WorkModalProps) {
                   className="btn-green inline-flex"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  Visit Live App
+                  {campaign.linkLabel ?? "Visit Live App"}
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" className="ml-1">
                     <path d="M1 11L11 1M11 1H4M11 1v7" />
                   </svg>

@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 const links = [
-  { label: "Gallery", href: "#gallery" },
   { label: "Work", href: "#projects" },
+  { label: "Gallery", href: "#gallery" },
   { label: "About", href: "#about" },
 ];
 
@@ -41,8 +42,8 @@ export default function Nav() {
           scrolled ? "bg-bg/90 backdrop-blur-md" : "bg-transparent"
         }`}
       >
-        <div className="flex items-center justify-between px-6 md:px-10 lg:px-16 h-16 md:h-20">
-          {/* Nico Verde script logo */}
+        <div className="flex items-center justify-between px-6 md:px-10 lg:px-16 h-20 md:h-28">
+          {/* Logo */}
           <a
             href="#hero"
             onClick={(e) => {
@@ -55,12 +56,12 @@ export default function Nav() {
             <img
               src="/verde_house_logo.png"
               alt="Verde House Productions"
-              className="h-14 md:h-20 w-auto"
+              className="h-16 md:h-24 w-auto"
             />
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-7 lg:gap-9">
+          <nav className="hidden md:flex items-center gap-10 lg:gap-14">
             {links.map((link) => (
               <a
                 key={link.label}
@@ -69,17 +70,25 @@ export default function Nav() {
                   e.preventDefault();
                   go(link.href);
                 }}
-                className="text-[11px] tracking-widest uppercase text-white/50 hover:text-white font-body transition-colors duration-200"
+                className="text-sm tracking-widest uppercase text-white/60 hover:text-white font-body transition-colors duration-200"
               >
                 {link.label}
               </a>
             ))}
             <a
-              href="mailto:hello@verdehouseproductions.com"
-              className="text-[11px] tracking-widest uppercase font-body px-5 py-2 border border-green text-green hover:bg-green hover:text-bg transition-all duration-200"
+              href="https://beacons.ai/nicoverde/mediakit?origin=lib"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm tracking-widest uppercase font-body text-white/60 hover:text-white transition-colors duration-200"
+            >
+              Media Kit
+            </a>
+            <Link
+              href="/book"
+              className="text-sm tracking-widest uppercase font-body px-6 py-3 border border-green text-green hover:bg-green hover:text-bg transition-all duration-200"
             >
               Book Me
-            </a>
+            </Link>
           </nav>
 
           {/* Mobile hamburger */}
@@ -139,14 +148,29 @@ export default function Nav() {
               </motion.a>
             ))}
             <motion.a
-              href="mailto:hello@verdehouseproductions.com"
+              href="https://beacons.ai/nicoverde/mediakit?origin=lib"
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: links.length * 0.07 + 0.1 }}
-              className="font-display text-4xl text-green"
+              className="font-display text-4xl text-white/50 hover:text-white transition-colors duration-200"
             >
-              Book Me
+              Media Kit
             </motion.a>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: (links.length + 1) * 0.07 + 0.1 }}
+            >
+              <Link
+                href="/book"
+                onClick={() => setMenuOpen(false)}
+                className="font-display text-4xl text-green"
+              >
+                Book Me
+              </Link>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

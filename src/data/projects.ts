@@ -19,6 +19,7 @@ export interface Campaign {
   type: string;
   award?: string;
   link?: string;
+  linkLabel?: string; // button label, defaults to "Visit Live App"
   coverVideo?: string;
   coverImage?: string;
   coverAspect?: string; // aspect ratio of cover video/image, e.g. "9/16" or "16/9"
@@ -87,6 +88,26 @@ export const campaigns: Campaign[] = [
     coverAspect: "9/16",
     media: [
       { type: "video", src: "/work/hacklanta/cover.mp4", size: "hero", aspect: "9/16" },
+    ],
+  },
+  {
+    id: "lachesis",
+    title: "Lachesis",
+    role: "Social Media & Marketing",
+    date: "2026",
+    description:
+      "Led social media and marketing for Lachesis, a fintech platform using quantum computing to analyze investment portfolios and deliver personalized trading recommendations. Currently in beta, Lachesis brings institutional-level portfolio intelligence to everyday investors.",
+    blurb:
+      "Social media and marketing for a quantum-powered fintech platform bringing institutional portfolio intelligence to everyday investors.",
+    tags: ["Social Media", "Marketing", "Fintech", "Strategy"],
+    type: "Client",
+    link: "https://lachesisprototype3.vercel.app/auth",
+    linkLabel: "Visit Platform",
+    coverVideo: "/work/lachesis/Lachesis-POV.mp4",
+    coverAspect: "9/16",
+    media: [
+      { type: "video", src: "/work/lachesis/Lachesis-POV.mp4",              size: "hero",   aspect: "9/16", caption: "POV" },
+      { type: "video", src: "/work/lachesis/lachesis-application-build.mp4", size: "large",  aspect: "9/16", caption: "App Build" },
     ],
   },
   {

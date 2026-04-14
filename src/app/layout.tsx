@@ -16,11 +16,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Verde House Productions",
+  title: "Nico Verde — Verde House Productions",
   description:
     "Creative direction, video & photo, campaigns. Verde House Productions — let's make something.",
   openGraph: {
-    title: "Verde House Productions",
+    title: "Nico Verde — Verde House Productions",
     description: "Creative direction · Video & Photo · Campaigns",
     type: "website",
   },

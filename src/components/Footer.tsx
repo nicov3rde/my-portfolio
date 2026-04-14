@@ -6,7 +6,7 @@ import FadeIn from "./FadeIn";
 const socialLinks = [
   {
     label: "Instagram",
-    href: "https://instagram.com/verdehouseproductions",
+    href: "https://instagram.com/nicov3rde",
     icon: (
       <svg
         width="18"
