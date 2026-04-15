@@ -54,8 +54,8 @@ export default function Nav() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/verde_house_logo.png"
-              alt="Verde House Productions"
+              src="/verde_logo_real.png"
+              alt="Nico Verde"
               className="h-16 md:h-24 w-auto"
             />
           </a>

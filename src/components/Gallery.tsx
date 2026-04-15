@@ -208,7 +208,13 @@ function WritingCard({
       className="bg-card p-8 md:p-10 flex flex-col gap-4 group cursor-pointer"
       onClick={handleClick}
     >
-      <p className="label-text">Writing</p>
+      <div className="flex flex-wrap gap-1.5">
+        {(item.tags ?? ["Writing"]).map((tag) => (
+          <span key={tag} className="text-[9px] tracking-widest uppercase font-body px-2 py-0.5 border border-green/20 text-green/50">
+            {tag}
+          </span>
+        ))}
+      </div>
       <h3 className="font-display text-2xl md:text-3xl text-cream uppercase leading-tight group-hover:text-green transition-colors duration-300">
         {item.title}
       </h3>
