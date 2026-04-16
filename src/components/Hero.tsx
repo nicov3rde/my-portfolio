@@ -17,66 +17,30 @@ export default function Hero() {
       />
 
       {/* Dark cinematic overlay */}
-      <div className="absolute inset-0 bg-black/60" />
-      <div className="absolute inset-0 bg-gradient-to-t from-bg/95 via-black/20 to-transparent" />
+      <div className="absolute inset-0 bg-black/55" />
+      <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-black/10 to-transparent" />
 
-      {/* Bottom-left editorial text block */}
-      <div className="absolute bottom-0 left-0 px-6 md:px-12 lg:px-20 pb-12 md:pb-16 z-10 max-w-4xl">
+      {/* Centered logo + tagline */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-10 gap-6">
+        <motion.img
+          src="/verde_house_logo.png"
+          alt="Verde House Productions"
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.4, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="w-[280px] sm:w-[420px] md:w-[540px] lg:w-[620px] h-auto"
+        />
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
-          className="text-[10px] tracking-ultrawide uppercase text-white/30 font-body mb-5"
+          transition={{ delay: 1, duration: 0.7, ease: "easeOut" }}
+          className="text-[10px] md:text-xs tracking-widest uppercase font-body text-white/40 text-center"
         >
-          Verde House Productions
+          Nico Verde &nbsp;&middot;&nbsp; Creative Director &amp; Filmmaker &nbsp;&middot;&nbsp; Atlanta &middot; New York
         </motion.p>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display text-display-xl text-cream uppercase leading-none"
-        >
-          Let&rsquo;s Make
-          <br />
-          <span className="text-green">Something.</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.85, duration: 0.7, ease: "easeOut" }}
-          className="mt-5 text-white/35 text-xs md:text-sm tracking-widest uppercase font-body"
-        >
-          Creative Direction &middot; Video &amp; Photo &middot; Campaigns
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.1, duration: 0.7, ease: "easeOut" }}
-          className="mt-8 flex flex-col sm:flex-row gap-3"
-        >
-          <a
-            href="mailto:hello@verdehouseproductions.com"
-            className="btn-green"
-          >
-            Book Me
-          </a>
-          <button
-            onClick={() =>
-              document
-                .querySelector("#gallery")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
-            className="btn-outline-green"
-          >
-            See My Work
-          </button>
-        </motion.div>
       </div>
 
-      {/* Scroll indicator — bottom right */}
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

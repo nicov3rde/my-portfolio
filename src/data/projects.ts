@@ -4,7 +4,7 @@ export interface CampaignMedia {
   type: "photo" | "video";
   src: string;
   size: MediaSize;
-  aspect?: string;   // e.g. "9/16" or "16/9" — defaults to "9/16"
+  aspect?: string;
   caption?: string;
 }
 
@@ -14,30 +14,30 @@ export interface Campaign {
   role: string;
   date: string;
   description: string;
-  blurb?: string;      // short 1-2 sentence card blurb
+  blurb?: string;
   tags: string[];
   type: string;
   award?: string;
   link?: string;
-  linkLabel?: string; // button label, defaults to "Visit Live App"
+  linkLabel?: string;
   coverVideo?: string;
   coverImage?: string;
-  coverAspect?: string; // aspect ratio of cover video/image, e.g. "9/16" or "16/9"
+  coverAspect?: string;
   media: CampaignMedia[];
 }
 
 export const campaigns: Campaign[] = [
-  // ─── Sorted most recent first ───────────────────────────────────────────
   {
     id: "verde-house",
     title: "Verde House",
     role: "Creative Director",
     date: "Apr 2026",
     description:
-      "A house party boiler room experience — come forget everything and dance. Conceived and executed all creative direction, promotion, and production over 2 months as both an event and a launch statement for Verde House Productions.",
+      "A house party boiler room experience. Conceived and executed all creative direction, promotion, and production over 2 months as both an event and a launch statement for Verde House Productions.",
     blurb: "House Party Boiler Room",
     tags: ["Creative Direction", "Event Production", "Social", "Promo"],
     type: "Personal / Production Company",
+    coverImage: "/verde_house_flyer.png",
     coverVideo: "/work/verde-house/cover.mp4",
     coverAspect: "9/16",
     media: [
@@ -53,15 +53,15 @@ export const campaigns: Campaign[] = [
   {
     id: "linkedout",
     title: "LinkedOut",
-    role: "Developer, Product Lead, Marketing & Demo",
+    role: "Developer, Product Lead, Marketing and Demo",
     date: "2026",
     description:
       "An AI-powered LinkedIn parody web app built in 12 hours. Features voice-to-corporate-jargon conversion, an AI headshot generator, and a Certificate Generator for mundane achievements. Co-developed the app, led product vision and UX, built and pitched the demo video that won the judges over.",
     blurb:
-      "AI-powered LinkedIn parody app built and pitched in 12 hours at HackLanta — took 1st place.",
-    tags: ["Hackathon", "AI", "React", "Product", "Marketing", "🏆 Best Corporate Larp"],
-    type: "Hackathon — Georgia State University",
-    award: "🥇 1st Place",
+      "AI-powered LinkedIn parody app built and pitched in 12 hours at HackLanta. Took 1st place.",
+    tags: ["Hackathon", "AI", "React", "Product", "Marketing", "Best Corporate Larp"],
+    type: "Hackathon, Georgia State University",
+    award: "1st Place",
     link: "https://linkedout-jet.vercel.app/",
     coverVideo: "/work/linked-out/productdemo.mp4",
     coverAspect: "9/16",
@@ -78,7 +78,7 @@ export const campaigns: Campaign[] = [
     role: "Videographer / Editor",
     date: "2026",
     description:
-      "Produced the official promo video for Hacklanta, an Atlanta-based hackathon. Won the hackathon.",
+      "Produced the official promo video for Hacklanta, an Atlanta-based hackathon.",
     blurb:
       "Official promo video for Atlanta's first hackathon at Georgia State.",
     tags: ["Video", "Promo", "Hackathon"],
@@ -92,7 +92,7 @@ export const campaigns: Campaign[] = [
   {
     id: "lachesis",
     title: "Lachesis",
-    role: "Social Media & Marketing",
+    role: "Social Media and Marketing",
     date: "2026",
     description:
       "Led social media and marketing for Lachesis, a fintech platform using quantum computing to analyze investment portfolios and deliver personalized trading recommendations. Currently in beta, Lachesis brings institutional-level portfolio intelligence to everyday investors.",
@@ -129,47 +129,57 @@ export const campaigns: Campaign[] = [
   {
     id: "underground-journal",
     title: "Underground Journal",
-    role: "Videographer / Editor",
+    role: "Director of External Affairs / Videographer",
     date: "2026",
-    description: "Coming soon.",
-    blurb: "Coming soon.",
-    tags: ["Video", "Editorial"],
+    description: "Led marketing and grew submissions 507% as Director of External Affairs for The Underground Journal at Georgia State University. Produced video content for the publication.",
+    blurb: "507% submission growth as Director of External Affairs. Video production for GSU's Underground Journal.",
+    tags: ["Video", "Editorial", "Marketing", "GSU"],
     type: "Client",
-    coverVideo: undefined,
+    coverVideo: "/work/Underground Journal/nettspend undergeround.mp4",
     coverAspect: "9/16",
-    media: [],
-  },
-  {
-    id: "valaco-styles",
-    title: "Valaco Styles",
-    role: "Videographer / Editor",
-    date: "2026",
-    description: "Coming soon.",
-    blurb: "Coming soon.",
-    tags: ["Video", "Fashion"],
-    type: "Client",
-    coverVideo: undefined,
-    coverAspect: "9/16",
-    media: [],
+    media: [
+      { type: "video", src: "/work/Underground Journal/nettspend undergeround.mp4", size: "hero",   aspect: "9/16" },
+      { type: "video", src: "/work/Underground Journal/undergorund how to.mp4",      size: "medium", aspect: "9/16" },
+      { type: "video", src: "/work/Underground Journal/undergorund interview.mp4",   size: "medium", aspect: "9/16" },
+    ],
   },
   {
     id: "alma-cocina",
     title: "Alma Cocina",
     role: "Videographer / Editor",
     date: "2026",
-    description: "Coming soon.",
-    blurb: "Coming soon.",
-    tags: ["Video", "Food & Beverage"],
+    description: "Shot and produced video content for Alma Cocina, an Atlanta restaurant.",
+    blurb: "Video content for Alma Cocina, an Atlanta restaurant.",
+    tags: ["Video", "Food and Beverage", "Atlanta"],
     type: "Client",
-    coverVideo: undefined,
+    coverVideo: "/work/Alma Cocina/alma vid.mp4",
     coverAspect: "9/16",
-    media: [],
+    media: [
+      { type: "video", src: "/work/Alma Cocina/alma vid.mp4", size: "hero", aspect: "9/16" },
+    ],
+  },
+  {
+    id: "ab-cookie",
+    title: "Ab Cookie",
+    role: "Marketing",
+    date: "2025",
+    description: "Led marketing for Ab Cookie, an Atlanta-based bakery. Shot and produced content for their social media presence.",
+    blurb: "Social media marketing and content production for an Atlanta bakery.",
+    tags: ["Marketing", "Social Media", "Video", "Food and Beverage"],
+    type: "Client",
+    coverVideo: "/work/Ab Cookie Co/ab cookie cobbler.mp4",
+    coverAspect: "9/16",
+    media: [
+      { type: "video", src: "/work/Ab Cookie Co/ab cookie cobbler.mp4", size: "hero",   aspect: "9/16" },
+      { type: "video", src: "/work/Ab Cookie Co/ab gen z.mp4",          size: "medium", aspect: "9/16" },
+      { type: "video", src: "/work/Ab Cookie Co/ab videow 1.mp4",       size: "medium", aspect: "9/16" },
+    ],
   },
   {
     id: "jried",
     title: "Jried",
     role: "Photographer / Videographer",
-    date: "Feb 2026 — NYFW",
+    date: "Feb 2026, NYFW",
     description:
       "Shot photo and video for Jried's NYC popup with Sonny Digital during New York Fashion Week. Captured the full event for his brand.",
     blurb:

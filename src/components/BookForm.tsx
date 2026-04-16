@@ -59,10 +59,10 @@ export default function BookForm() {
         <p className="mt-3 text-[10px] tracking-wide font-body text-white/25">
           Or email directly:{" "}
           <a
-            href="mailto:hello@verdehouseproductions.com"
+            href="mailto:nicov3rde@gmail.com?subject=Booking%20Inquiry"
             className="text-green/60 hover:text-green transition-colors duration-200"
           >
-            hello@verdehouseproductions.com
+            nicov3rde@gmail.com
           </a>
         </p>
       </div>

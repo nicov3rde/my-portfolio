@@ -33,6 +33,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${bebas.variable} ${inter.variable}`}>
+      <head>
+        <link rel="icon" href="/verde_house_logo.png" />
+      </head>
       <body className="bg-bg text-cream font-body overflow-x-hidden">{children}</body>
     </html>
   );

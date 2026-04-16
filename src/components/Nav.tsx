@@ -54,9 +54,9 @@ export default function Nav() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/verde_logo_real.png"
+              src="/nico logo no background.png"
               alt="Nico Verde"
-              className="h-16 md:h-24 w-auto"
+              className="h-20 md:h-32 w-auto"
             />
           </a>
 
