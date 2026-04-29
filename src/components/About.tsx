@@ -57,17 +57,14 @@ const socials = [
 export default function About() {
   return (
     <section id="about" className="section-pad pb-10 md:pb-12 bg-bg">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+      {/* Two-column bio */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-10 md:mb-12">
 
         {/* Left — headshot */}
         <FadeIn direction="up">
           <div className="relative w-full aspect-[4/5] overflow-hidden bg-card">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/gallery/1.png"
-              alt="Nico Verde"
-              className="w-full h-full object-cover"
-            />
+            <img src="/gallery/1.png" alt="Nico Verde" className="w-full h-full object-cover" />
             <div className="absolute top-4 right-4 w-10 h-10 border-t border-r border-green/30 pointer-events-none" />
             <div className="absolute bottom-4 left-4 w-10 h-10 border-b border-l border-green/30 pointer-events-none" />
           </div>
@@ -99,24 +96,7 @@ export default function About() {
             </div>
           </FadeIn>
 
-          {/* Stats row */}
           <FadeIn direction="up" delay={0.2}>
-            <div className="grid grid-cols-2 gap-px bg-border">
-              {stats.map((stat) => (
-                <div key={stat.label} className="bg-card px-5 py-4 flex flex-col gap-1">
-                  <span className="font-display text-2xl md:text-3xl text-green leading-none">
-                    {stat.value}
-                  </span>
-                  <span className="text-[10px] tracking-widest uppercase font-body text-white/40">
-                    {stat.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </FadeIn>
-
-          {/* Available badge */}
-          <FadeIn direction="up" delay={0.25}>
             <div className="inline-flex items-center gap-2.5 border border-green/40 px-4 py-2.5 w-fit">
               <span className="w-1.5 h-1.5 rounded-full bg-green animate-pulse" />
               <span className="text-xs tracking-widest uppercase font-body text-green/90">
@@ -125,8 +105,7 @@ export default function About() {
             </div>
           </FadeIn>
 
-          {/* Social icons */}
-          <FadeIn direction="up" delay={0.3}>
+          <FadeIn direction="up" delay={0.25}>
             <div className="flex items-center gap-4">
               {socials.map((s) => (
                 <motion.a
@@ -145,8 +124,23 @@ export default function About() {
             </div>
           </FadeIn>
         </div>
-
       </div>
+
+      {/* Stats — full-width row spanning both columns */}
+      <FadeIn direction="up" delay={0.3}>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
+          {stats.map((stat) => (
+            <div key={stat.label} className="bg-card px-6 py-5 flex flex-col gap-1">
+              <span className="font-display text-3xl md:text-4xl text-green leading-none">
+                {stat.value}
+              </span>
+              <span className="text-[10px] tracking-widest uppercase font-body text-white/40">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </FadeIn>
     </section>
   );
 }

@@ -49,6 +49,13 @@ const clipping: RateItem[] = [
   { service: "Bulk (10+ clips)", price: "$20/clip" },
 ];
 
+const consulting: RateItem[] = [
+  { service: "Social Media Strategy", price: "$75/hr", note: "Content planning, platform strategy, growth" },
+  { service: "Content Planning", price: "$75/hr", note: "Editorial calendars, campaign planning" },
+  { service: "Creative Direction Consulting", price: "$75/hr", note: "Brand voice, visual identity, campaign concepts" },
+  { service: "Minimum", price: "1 hr", note: "Billed in 1-hour increments" },
+];
+
 function RateTable({ title, items }: { title: string; items: RateItem[] }) {
   return (
     <div>
@@ -105,6 +112,7 @@ export default function BookPage() {
             <RateTable title="Long Form" items={longForm} />
             <RateTable title="Packages" items={packages} />
             <RateTable title="AI-Generated Video" items={aiVideo} />
+            <RateTable title="Consulting" items={consulting} />
             <RateTable title="Photo" items={photo} />
             <RateTable title="Clipping" items={clipping} />
           </div>
@@ -171,6 +179,22 @@ export default function BookPage() {
             <p className="text-sm font-body text-white/60 leading-relaxed">
               1 revision round included with every project. Additional rounds at $50/hr.
               Revisions must be requested within 7 days of delivery.
+            </p>
+          </div>
+        </section>
+
+        {/* ── IP / Rights ─────────────────────────────────────────── */}
+        <section>
+          <div className="flex items-center gap-4 mb-8">
+            <span className="label-text">Legal</span>
+            <div className="flex-1 h-px bg-border" />
+          </div>
+          <h2 className="font-display text-3xl md:text-4xl text-cream uppercase mb-6">IP and Rights</h2>
+          <div className="bg-card border border-border px-6 py-6">
+            <p className="text-sm font-body text-white/60 leading-relaxed">
+              Upon full payment, the client receives a perpetual license to use the delivered content for their intended purpose.
+              Verde House Productions retains the right to display all produced work in its portfolio, social media, and promotional
+              materials unless otherwise agreed upon in writing prior to the project.
             </p>
           </div>
         </section>
