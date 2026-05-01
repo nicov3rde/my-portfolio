@@ -50,9 +50,9 @@ const clipping: RateItem[] = [
 ];
 
 const consulting: RateItem[] = [
-  { service: "Social Media Strategy", price: "$75/hr", note: "Content planning, platform strategy, growth" },
-  { service: "Content Planning", price: "$75/hr", note: "Editorial calendars, campaign planning" },
-  { service: "Creative Direction Consulting", price: "$75/hr", note: "Brand voice, visual identity, campaign concepts" },
+  { service: "Social Media Strategy", price: "$100/hr", note: "Content planning, platform strategy, growth" },
+  { service: "Content Planning", price: "$100/hr", note: "Editorial calendars, campaign planning" },
+  { service: "Creative Direction Consulting", price: "$100/hr", note: "Brand voice, visual identity, campaign concepts" },
   { service: "Minimum", price: "1 hr", note: "Billed in 1-hour increments" },
 ];
 
