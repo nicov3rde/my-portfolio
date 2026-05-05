@@ -176,21 +176,6 @@ export const campaigns: Campaign[] = [
     ],
   },
   {
-    id: "wedding-videography",
-    title: "Wedding Videography",
-    role: "Videographer / Editor",
-    date: "2026",
-    description: "Full wedding video production, shoot to final edit.",
-    blurb: "Full wedding video production, shoot to final edit.",
-    tags: ["Video", "Wedding", "Event"],
-    type: "Client",
-    coverVideo: "/work/Weddings/RSB Wedding Video .mp4",
-    coverAspect: "16/9",
-    media: [
-      { type: "video", src: "/work/Weddings/RSB Wedding Video .mp4", size: "hero", aspect: "16/9" },
-    ],
-  },
-  {
     id: "jried",
     title: "Jried",
     role: "Photographer / Videographer",

@@ -8,6 +8,7 @@ const links = [
   { label: "Work", href: "#projects" },
   { label: "Gallery", href: "#gallery" },
   { label: "About", href: "#about" },
+  { label: "Writing", href: "/writing", external: true },
 ];
 
 export default function Nav() {
@@ -62,19 +63,35 @@ export default function Nav() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-10 lg:gap-14">
-            {links.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  go(link.href);
-                }}
-                className="text-sm tracking-widest uppercase text-white/60 hover:text-white font-body transition-colors duration-200"
-              >
-                {link.label}
-              </a>
-            ))}
+            {links.map((link) =>
+              link.external ? (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="text-sm tracking-widest uppercase text-white/60 hover:text-white font-body transition-colors duration-200"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    go(link.href);
+                  }}
+                  className="text-sm tracking-widest uppercase text-white/60 hover:text-white font-body transition-colors duration-200"
+                >
+                  {link.label}
+                </a>
+              )
+            )}
+            <Link
+              href="/writing/instagram-marketing-guide"
+              className="text-sm tracking-widest uppercase font-body text-white/60 hover:text-white transition-colors duration-200"
+            >
+              Free Guide
+            </Link>
             <a
               href="https://beacons.ai/nicoverde/mediakit?origin=lib"
               target="_blank"
@@ -131,29 +148,47 @@ export default function Nav() {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 bg-bg flex flex-col items-center justify-center gap-10 md:hidden"
           >
-            {links.map((link, i) => (
-              <motion.a
-                key={link.label}
-                href={link.href}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.07 + 0.1 }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  go(link.href);
-                }}
-                className="font-display text-5xl text-cream hover:text-green transition-colors duration-200"
+            {links.map((link, i) =>
+              link.external ? (
+                <motion.div key={link.label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.07 + 0.1 }}>
+                  <Link href={link.href} onClick={() => setMenuOpen(false)} className="font-display text-5xl text-cream hover:text-green transition-colors duration-200">
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ) : (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.07 + 0.1 }}
+                  onClick={(e) => { e.preventDefault(); go(link.href); }}
+                  className="font-display text-5xl text-cream hover:text-green transition-colors duration-200"
+                >
+                  {link.label}
+                </motion.a>
+              )
+            )}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: links.length * 0.07 + 0.1 }}
+            >
+              <Link
+                href="/writing/instagram-marketing-guide"
+                onClick={() => setMenuOpen(false)}
+                className="font-display text-4xl text-cream hover:text-green transition-colors duration-200"
               >
-                {link.label}
-              </motion.a>
-            ))}
+                Free Guide
+              </Link>
+            </motion.div>
             <motion.a
               href="https://beacons.ai/nicoverde/mediakit?origin=lib"
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: links.length * 0.07 + 0.1 }}
+              transition={{ delay: (links.length + 1) * 0.07 + 0.1 }}
               className="font-display text-4xl text-white/50 hover:text-white transition-colors duration-200"
             >
               Media Kit
