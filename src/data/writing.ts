@@ -102,7 +102,7 @@ export const writingPieces: WritingPiece[] = [
       { type: "callout", label: "Copy + Tweak These", items: [
         "Post at least 3-4 Reels per week minimum to build momentum",
         "Reply to every comment within the first 60 minutes of posting",
-        "Add captions — 85% of videos are watched without sound",
+        "Cross-post to Stories and pin your best Reels to your profile",
       ]},
       { type: "divider" },
       { type: "note", text: "Every viral Reel has all six: a hook that stops the scroll, value that justifies the watch, visuals that look intentional, audio that enhances not distracts, a CTA that converts, and a distribution strategy that gives it a chance to reach beyond your existing audience." },
