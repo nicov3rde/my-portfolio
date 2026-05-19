@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -20,8 +21,8 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/55" />
       <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-black/10 to-transparent" />
 
-      {/* Centered logo + tagline */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center z-10 gap-6">
+      {/* Centered logo + CTA */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
         <motion.img
           src="/verde_house_logo.png"
           alt="Verde House Productions"
@@ -30,14 +31,29 @@ export default function Hero() {
           transition={{ delay: 0.4, duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="w-[280px] sm:w-[420px] md:w-[540px] lg:w-[620px] h-auto"
         />
-        <motion.p
+        {/*
+          The PNG has built-in transparent padding at the bottom.
+          Negative margin pulls the CTA up to sit under the actual lettering.
+        */}
+        <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.7, ease: "easeOut" }}
-          className="text-[10px] md:text-xs tracking-widest uppercase font-body text-white/40 text-center"
+          className="flex flex-col items-center gap-3 text-center px-6 -mt-14 sm:-mt-20 md:-mt-28 lg:-mt-36"
         >
-          Nico Verde &nbsp;&middot;&nbsp; Creative Director &amp; Filmmaker &nbsp;&middot;&nbsp; Atlanta &middot; New York
-        </motion.p>
+          <p className="text-sm md:text-base font-body text-white/70 tracking-wide max-w-md">
+            Taking 5 creators this summer in NYC. Content, edits, creative direction.
+          </p>
+          <p className="text-xs font-body text-white/35 tracking-wide uppercase">
+            Spots fill fast. Apply before they are gone.
+          </p>
+          <Link
+            href="/summer"
+            className="mt-1 text-[11px] tracking-widest uppercase font-body px-6 py-3 border border-green text-green hover:bg-green hover:text-bg transition-all duration-200"
+          >
+            Claim a Spot
+          </Link>
+        </motion.div>
       </div>
 
       {/* Scroll indicator */}
