@@ -58,19 +58,19 @@ export default function SummerForm() {
     <form onSubmit={handleSubmit} className="space-y-5 max-w-xl">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div className="flex flex-col gap-2">
-          <label className="text-[10px] tracking-widest uppercase font-body text-white/40">Full name *</label>
-          <input required type="text" placeholder="First and last" value={form.name} onChange={set("name")} className={inputCls} />
+          <label className="text-[10px] tracking-widest uppercase font-body text-white/40">Full name</label>
+          <input type="text" placeholder="First and last" value={form.name} onChange={set("name")} className={inputCls} />
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-[10px] tracking-widest uppercase font-body text-white/40">Email address *</label>
-          <input required type="email" placeholder="you@email.com" value={form.email} onChange={set("email")} className={inputCls} />
+          <label className="text-[10px] tracking-widest uppercase font-body text-white/40">Email address</label>
+          <input type="email" placeholder="you@email.com" value={form.email} onChange={set("email")} className={inputCls} />
         </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div className="flex flex-col gap-2">
-          <label className="text-[10px] tracking-widest uppercase font-body text-white/40">Instagram handle *</label>
-          <input required type="text" placeholder="@yourhandle" value={form.instagram} onChange={set("instagram")} className={inputCls} />
+          <label className="text-[10px] tracking-widest uppercase font-body text-white/40">Instagram handle</label>
+          <input type="text" placeholder="@yourhandle" value={form.instagram} onChange={set("instagram")} className={inputCls} />
         </div>
         <div className="flex flex-col gap-2">
           <label className="text-[10px] tracking-widest uppercase font-body text-white/40">TikTok handle (optional)</label>
@@ -79,19 +79,19 @@ export default function SummerForm() {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label className="text-[10px] tracking-widest uppercase font-body text-white/40">Link your main account *</label>
-        <input required type="url" placeholder="https://instagram.com/yourhandle" value={form.link} onChange={set("link")} className={inputCls} />
+        <label className="text-[10px] tracking-widest uppercase font-body text-white/40">Link your main account</label>
+        <input type="text" placeholder="https://instagram.com/yourhandle" value={form.link} onChange={set("link")} className={inputCls} />
       </div>
 
       <div className="flex flex-col gap-2">
-        <label className="text-[10px] tracking-widest uppercase font-body text-white/40">What are you building? *</label>
-        <input required type="text" placeholder="Your niche, content type, what you are working toward" value={form.building} onChange={set("building")} className={inputCls} />
+        <label className="text-[10px] tracking-widest uppercase font-body text-white/40">What are you building?</label>
+        <input type="text" placeholder="Your niche, content type, what you are working toward" value={form.building} onChange={set("building")} className={inputCls} />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div className="flex flex-col gap-2">
-          <label className="text-[10px] tracking-widest uppercase font-body text-white/40">Type of creator *</label>
-          <select required value={form.type} onChange={set("type")} className={selectCls}>
+          <label className="text-[10px] tracking-widest uppercase font-body text-white/40">Type of creator</label>
+          <select value={form.type} onChange={set("type")} className={selectCls}>
             <option value="">Select one...</option>
             <option>Creator / Influencer</option>
             <option>Musician</option>
@@ -101,8 +101,8 @@ export default function SummerForm() {
           </select>
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-[10px] tracking-widest uppercase font-body text-white/40">How often do you post? *</label>
-          <select required value={form.frequency} onChange={set("frequency")} className={selectCls}>
+          <label className="text-[10px] tracking-widest uppercase font-body text-white/40">How often do you post?</label>
+          <select value={form.frequency} onChange={set("frequency")} className={selectCls}>
             <option value="">Select one...</option>
             <option>Daily</option>
             <option>A few times a week</option>

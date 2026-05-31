@@ -149,6 +149,22 @@ export default function SummerPage() {
               Spots are limited. I will reach out if it is a fit.
             </p>
             <SummerForm />
+
+            {/* DM fallback */}
+            <div className="mt-14 pt-10 border-t border-border max-w-xl">
+              <p className="text-cream font-body text-base mb-1">Or just DM me.</p>
+              <p className="text-white/40 font-body text-sm mb-6">
+                No form needed. Slide into my DMs on Instagram, tell me what you do, and we will go from there.
+              </p>
+              <a
+                href="https://instagram.com/nicov3rde"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline-green inline-flex"
+              >
+                @nicov3rde on Instagram
+              </a>
+            </div>
           </div>
         </section>
 
