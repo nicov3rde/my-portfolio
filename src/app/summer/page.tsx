@@ -41,22 +41,33 @@ export default function SummerPage() {
 
         {/* 1. Hero — headline, intro, apply button */}
         <section className="pt-24 md:pt-32 pb-14 px-6 md:px-12 lg:px-20 border-b border-border">
-          <p className="label-text mb-4">Limited. Summer 2026. New York City.</p>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-cream uppercase leading-tight mb-8">
-            5 spots. One summer.<br />
-            <span className="text-green">NYC creators only.</span>
-          </h1>
-          <div className="max-w-2xl space-y-4 mb-10">
-            <p className="text-cream text-base md:text-lg font-body leading-relaxed">
-              This is free management. I work with you every day. We brainstorm, collab, link up, and build your content strategy together. All of that is free.
-            </p>
-            <p className="text-white/60 text-sm md:text-base font-body leading-relaxed">
-              You only pay for deliverables when I make something for you. You are not hiring a freelancer. You are getting a creative manager with a proven track record, under Verde House Productions.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            <div>
+              <p className="label-text mb-4">Limited. Summer 2026. New York City.</p>
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-cream uppercase leading-tight mb-8">
+                5 spots. One summer.<br />
+                <span className="text-green">NYC creators only.</span>
+              </h1>
+              <div className="space-y-4 mb-10">
+                <p className="text-cream text-base md:text-lg font-body leading-relaxed">
+                  This is free management. I work with you every day. We brainstorm, collab, link up, and build your content strategy together. All of that is free.
+                </p>
+                <p className="text-white/60 text-sm md:text-base font-body leading-relaxed">
+                  You only pay for deliverables when I make something for you. You are not hiring a freelancer. You are getting a creative manager with a proven track record, under Verde House Productions.
+                </p>
+              </div>
+              <a href="#apply" className="btn-green inline-flex">
+                Apply for a Spot &darr;
+              </a>
+            </div>
+            <div className="flex justify-center lg:justify-start mt-8 lg:mt-0">
+              <img
+                src="/Free%20(1).png"
+                alt="Free Cameraman NYC — Verde House Productions"
+                className="w-full max-w-[300px] sm:max-w-[360px] lg:max-w-none"
+              />
+            </div>
           </div>
-          <a href="#apply" className="btn-green inline-flex">
-            Apply for a Spot &darr;
-          </a>
         </section>
 
         {/* 2. Who this is for */}
